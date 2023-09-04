@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Tempo</title>
+</head>
+<body>
+    <div id="demo">30:00</div>
+    <div id="resetTrigger" style="display: none;"></div>
+
+    <script>
+        // Função para atualizar o contador de tempo
+        function updateTimer() {
+            // ... (código de atualização do contador)
+
+            // Armazena o tempo inicial nos cookies
+            setCookie('initialTime', initialTime, 365); // Armazena por 1 ano
+        }
+
+        // Função para resetar o contador
+        function resetTimer() {
+            var currentTime = new Date().getTime();
+            setCookie('initialTime', currentTime, 365); // Reseta o tempo inicial para o valor atual
+            updateTimer(); // Atualiza imediatamente o contador após o reset
+        }
+
+        // Evento de clique duplo no elemento oculto para resetar o contador
+        document.getElementById('resetTrigger').addEventListener('dblclick', function() {
+            resetTimer();
+        });
+
+        // Resto do código (funções setCookie e getCookie) permanece o mesmo
+    </script>
+</body>
+</html>
